@@ -13,9 +13,16 @@ namespace Pong3U
     public partial class Form1 : Form
     {
         //global variables
-        Rectangle player1 = new Rectangle(10, 210, 10, 60);
-        Rectangle player2 = new Rectangle(10, 130, 10, 60);
+        Rectangle player1 = new Rectangle(235, 150, 60, 10);
+        Rectangle player2 = new Rectangle(235, 450, 60, 10);
         Rectangle ball = new Rectangle(295, 195, 10, 10);
+
+        Rectangle line = new Rectangle(0, 300, 528, 20);
+
+        Rectangle collision1Square = new Rectangle(212, 550, 20, 20);
+        Rectangle collision2Square = new Rectangle(212, -50, 20, 20);
+
+        
 
         int player1Score = 0;
         int player2Score = 0;
@@ -107,136 +114,140 @@ namespace Pong3U
         }
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            //move ball
-            ball.X += ballXSpeed;
-            ball.Y += ballYSpeed;
+            ////move ball
+            //ball.X += ballXSpeed;
+            //ball.Y += ballYSpeed;
 
-            //move player1
-            if (wDown == true && player1.Y > 0)
-            {
-                player1.Y -= playerSpeed;
-            }
+            ////move player1
+            //if (wDown == true && player1.Y > 0)
+            //{
+            //    player1.Y -= playerSpeed;
+            //}
 
-            if (sDown == true && player1.Y < this.Height - player1.Height)
-            {
-                player1.Y += playerSpeed;
-            }
+            //if (sDown == true && player1.Y < this.Height - player1.Height)
+            //{
+            //    player1.Y += playerSpeed;
+            //}
 
-            if (aDown == true && player1.X > 0)
-            {
-                player1.X -= playerSpeed;
-            }
+            //if (aDown == true && player1.X > 0)
+            //{
+            //    player1.X -= playerSpeed;
+            //}
 
-            if (dDown == true && player1.X < this.Width - player1.Width)
-            {
-                player1.X += playerSpeed;
-            }
+            //if (dDown == true && player1.X < this.Width - player1.Width)
+            //{
+            //    player1.X += playerSpeed;
+            //}
 
-            //move player2
-            if (upArrowDown == true && player2.Y > 0)
-            {
-                player2.Y -= playerSpeed;
-            }
+            ////move player2
+            //if (upArrowDown == true && player2.Y > 0)
+            //{
+            //    player2.Y -= playerSpeed;
+            //}
 
-            if (downArrowDown == true && player2.Y < this.Height - player2.Height)
-            {
-                player2.Y += playerSpeed;
-            }
+            //if (downArrowDown == true && player2.Y < this.Height - player2.Height)
+            //{
+            //    player2.Y += playerSpeed;
+            //}
 
-            if (leftArrowDown == true && player2.X > 0)
-            {
-                player2.X -= playerSpeed;
-            }
+            //if (leftArrowDown == true && player2.X > 0)
+            //{
+            //    player2.X -= playerSpeed;
+            //}
 
-            if (rightArrowDown == true && player2.X < this.Width - player2.Width)
-            {
-                player2.X += playerSpeed;
-            }
+            //if (rightArrowDown == true && player2.X < this.Width - player2.Width)
+            //{
+            //    player2.X += playerSpeed;
+            //}
 
-            //ball collision with top and bottom walls
-            if (ball.Y < 0 || ball.Y > this.Height - ball.Height)
-            {
-                ballYSpeed *= -1;  // or: ballYSpeed = -ballYSpeed; 
-            }
+            ////ball collision with top and bottom walls
+            //if (ball.Y < 0 || ball.Y > this.Height - ball.Height)
+            //{
+            //    ballYSpeed *= -1;  // or: ballYSpeed = -ballYSpeed; 
+            //}
 
-            //ball collision with right side wall
-            if (ball.X >= this.Width - ball.Width)
-            {
-                ballXSpeed *= -1;
+            ////ball collision with right side wall
+            //if (ball.X >= this.Width - ball.Width)
+            //{
+            //    ballXSpeed *= -1;
 
-            }
+            //}
 
-            //ball collision with player
-            if (ballXSpeed < 0)
-            {
-                if (player1.IntersectsWith(ball) && playerTurn == 1)
-                {
-                    ballXSpeed *= -1;
-                    ball.X = player1.X + ball.Width;
-                    playerTurn = 2;
-                }
-                else if (player2.IntersectsWith(ball) && playerTurn == 2)
-                {
-                    ballXSpeed *= -1;
-                    ball.X = player2.X + ball.Width;
-                    playerTurn = 1;
-                }
-            }
+            ////ball collision with player
+            //if (ballXSpeed < 0)
+            //{
+            //    if (player1.IntersectsWith(ball) && playerTurn == 1)
+            //    {
+            //        ballXSpeed *= -1;
+            //        ball.X = player1.X + ball.Width;
+            //        playerTurn = 2;
+            //    }
+            //    else if (player2.IntersectsWith(ball) && playerTurn == 2)
+            //    {
+            //        ballXSpeed *= -1;
+            //        ball.X = player2.X + ball.Width;
+            //        playerTurn = 1;
+            //    }
+            //}
 
-            //check for point scored 
-            if (ball.X < 0)
-            {
-                if (playerTurn == 2)
-                {
-                    player1Score++;
-                    p1ScoreLabel.Text = $"{player1Score}";
-                }
-                else
-                {
-                    player2Score++;
-                    p2ScoreLabel.Text = $"{player2Score}";
-                }
+            ////check for point scored 
+            //if (ball.X < 0)
+            //{
+            //    if (playerTurn == 2)
+            //    {
+            //        player1Score++;
+            //        p1ScoreLabel.Text = $"{player1Score}";
+            //    }
+            //    else
+            //    {
+            //        player2Score++;
+            //        p2ScoreLabel.Text = $"{player2Score}";
+            //    }
                 
-                ball.X = 295;
-                ball.Y = 195;
+            //    ball.X = 295;
+            //    ball.Y = 195;
 
-                player1.Y = 210;
-                player1.X = 10;
-                player2.Y = 130;
-                player2.X = 10;
-            }
+            //    player1.Y = 210;
+            //    player1.X = 10;
+            //    player2.Y = 130;
+            //    player2.X = 10;
+            //}
         
 
-            //check for game over
-            if (player1Score == 3)
-            {
-                gameTimer.Enabled = false;
-                winLabel.Visible = true;
-                winLabel.Text = "Player 1 Wins!!";
-            }
-            else if (player2Score == 3)
-            {
-                gameTimer.Enabled = false;
-                winLabel.Visible = true;
-                winLabel.Text = "Player 2 Wins!!";
-            }
+            ////check for game over
+            //if (player1Score == 3)
+            //{
+            //    gameTimer.Enabled = false;
+            //    winLabel.Visible = true;
+            //    winLabel.Text = "Player 1 Wins!!";
+            //}
+            //else if (player2Score == 3)
+            //{
+            //    gameTimer.Enabled = false;
+            //    winLabel.Visible = true;
+            //    winLabel.Text = "Player 2 Wins!!";
+            //}
 
-            Refresh();
+            //Refresh();
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.FillRectangle(blueBrush, player1);
             e.Graphics.FillRectangle(redBrush, player2);
             e.Graphics.FillRectangle(whiteBrush, ball);
+            e.Graphics.FillRectangle(whiteBrush, line);
 
-            if (playerTurn == 1)
-            {
-                e.Graphics.DrawRectangle(whitePen, player1);
-            }
-            else
-            {
-                e.Graphics.DrawRectangle(whitePen, player2);
-            }
+            e.Graphics.DrawArc(whitePen, 212, 550, 100, 100, 0, -180);
+            e.Graphics.DrawArc(whitePen, 212, -50, 100, 100, 0, 180);
+
+            //if (playerTurn == 1)
+            //{
+            //    e.Graphics.DrawRectangle(whitePen, player1);
+            //}
+            //else
+            //{
+            //    e.Graphics.DrawRectangle(whitePen, player2);
+            //}
         }
     }
 }
