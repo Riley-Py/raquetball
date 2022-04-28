@@ -15,12 +15,12 @@ namespace Pong3U
         //global variables
         Rectangle player1 = new Rectangle(235, 150, 60, 10);
         Rectangle player2 = new Rectangle(235, 450, 60, 10);
-        Rectangle ball = new Rectangle(295, 195, 10, 10);
+        Rectangle ball = new Rectangle(250, 290, 30, 30);
 
         Rectangle line = new Rectangle(0, 300, 528, 20);
 
-        Rectangle collision1Square = new Rectangle(212, 550, 20, 20);
-        Rectangle collision2Square = new Rectangle(212, -50, 20, 20);
+        Rectangle collision1Square = new Rectangle(213, 595, 100, 5);
+        Rectangle collision2Square = new Rectangle(213, 0, 100, 5);
 
         
 
@@ -45,6 +45,8 @@ namespace Pong3U
         SolidBrush blueBrush = new SolidBrush(Color.DodgerBlue);
         SolidBrush redBrush = new SolidBrush(Color.Red);
         SolidBrush whiteBrush = new SolidBrush(Color.White);
+        SolidBrush greenBrush = new SolidBrush(Color.Green);
+        SolidBrush orangeBrush = new SolidBrush(Color.Orange);
         Pen whitePen = new Pen(Color.White, 5);
 
         public Form1()
@@ -118,47 +120,47 @@ namespace Pong3U
             //ball.X += ballXSpeed;
             //ball.Y += ballYSpeed;
 
-            ////move player1
-            //if (wDown == true && player1.Y > 0)
-            //{
-            //    player1.Y -= playerSpeed;
-            //}
+            //move player1
+            if (wDown == true && player1.Y < 285)
+            {
+                player1.Y += playerSpeed;
+            }
 
-            //if (sDown == true && player1.Y < this.Height - player1.Height)
-            //{
-            //    player1.Y += playerSpeed;
-            //}
+            if (sDown == true && player1.Y > 0)
+            {
+                player1.Y -= playerSpeed;
+            }
 
-            //if (aDown == true && player1.X > 0)
-            //{
-            //    player1.X -= playerSpeed;
-            //}
+            if (aDown == true && player1.X > 0)
+            {
+                player1.X -= playerSpeed;
+            }
 
-            //if (dDown == true && player1.X < this.Width - player1.Width)
-            //{
-            //    player1.X += playerSpeed;
-            //}
+            if (dDown == true && player1.X < this.Width - player1.Width)
+            {
+                player1.X += playerSpeed;
+            }
 
-            ////move player2
-            //if (upArrowDown == true && player2.Y > 0)
-            //{
-            //    player2.Y -= playerSpeed;
-            //}
+            //move player2
+            if (upArrowDown == true && player2.Y > 325)
+            {
+                player2.Y -= playerSpeed;
+            }
 
-            //if (downArrowDown == true && player2.Y < this.Height - player2.Height)
-            //{
-            //    player2.Y += playerSpeed;
-            //}
+            if (downArrowDown == true && player2.Y < ((this.Height - player2.Height) - 5))
+            {
+                player2.Y += playerSpeed;
+            }
 
-            //if (leftArrowDown == true && player2.X > 0)
-            //{
-            //    player2.X -= playerSpeed;
-            //}
+            if (leftArrowDown == true && player2.X > 0)
+            {
+                player2.X -= playerSpeed;
+            }
 
-            //if (rightArrowDown == true && player2.X < this.Width - player2.Width)
-            //{
-            //    player2.X += playerSpeed;
-            //}
+            if (rightArrowDown == true && player2.X < this.Width - player2.Width)
+            {
+                player2.X += playerSpeed;
+            }
 
             ////ball collision with top and bottom walls
             //if (ball.Y < 0 || ball.Y > this.Height - ball.Height)
@@ -203,7 +205,7 @@ namespace Pong3U
             //        player2Score++;
             //        p2ScoreLabel.Text = $"{player2Score}";
             //    }
-                
+
             //    ball.X = 295;
             //    ball.Y = 195;
 
@@ -212,7 +214,7 @@ namespace Pong3U
             //    player2.Y = 130;
             //    player2.X = 10;
             //}
-        
+
 
             ////check for game over
             //if (player1Score == 3)
@@ -228,14 +230,17 @@ namespace Pong3U
             //    winLabel.Text = "Player 2 Wins!!";
             //}
 
-            //Refresh();
+            Refresh();
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(blueBrush, player1);
-            e.Graphics.FillRectangle(redBrush, player2);
+            e.Graphics.FillRectangle(redBrush, player1);
+            e.Graphics.FillRectangle(blueBrush, player2);
             e.Graphics.FillRectangle(whiteBrush, ball);
             e.Graphics.FillRectangle(whiteBrush, line);
+            e.Graphics.FillRectangle(greenBrush, collision1Square);
+            e.Graphics.FillRectangle(greenBrush, collision2Square);
+            e.Graphics.FillRectangle(orangeBrush, ball);
 
             e.Graphics.DrawArc(whitePen, 212, 550, 100, 100, 0, -180);
             e.Graphics.DrawArc(whitePen, 212, -50, 100, 100, 0, 180);
