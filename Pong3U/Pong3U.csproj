@@ -99,5 +99,11 @@
   <ItemGroup>
     <None Include="Resources\Dance till You%27re Dead %28FULL REMIX%29 [Bass Boosted]-K0tXhd7u56k.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roblox Death Sound - OOF _ Sound Effect HD - HomeMadeSoundEffects-xYJ63OTMDL4.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eh Eh Sound Effect-6ZFPXv7f3H4.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

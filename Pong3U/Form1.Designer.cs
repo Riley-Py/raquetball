@@ -36,6 +36,7 @@
             this.p1ScoreLabel = new System.Windows.Forms.Label();
             this.playAgain = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -109,11 +110,27 @@
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
+            // exitButton
+            // 
+            this.exitButton.BackColor = System.Drawing.Color.Transparent;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.exitButton.Location = new System.Drawing.Point(209, 414);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(105, 23);
+            this.exitButton.TabIndex = 8;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Visible = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(528, 600);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.playAgain);
             this.Controls.Add(this.winLabel);
@@ -140,6 +157,7 @@
         private System.Windows.Forms.Label p1ScoreLabel;
         private System.Windows.Forms.Button playAgain;
         private System.Windows.Forms.Button startButton;
+        private System.Windows.Forms.Button exitButton;
     }
 }
 

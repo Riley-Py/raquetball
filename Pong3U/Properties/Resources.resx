@@ -127,8 +127,8 @@
   <data name="GandalfVictory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gandalf Sax 4K-yAvRfhdl-WI.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Roblox" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Roblox Death Sound - Sound Effect (HD)-3w-2gUSus34.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Paddle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Eh Eh Sound Effect-6ZFPXv7f3H4.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Victory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dance till You're Dead (FULL REMIX) [Bass Boosted]-K0tXhd7u56k.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

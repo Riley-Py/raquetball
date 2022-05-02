@@ -91,9 +91,9 @@ namespace Pong3U.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Roblox {
+        internal static System.IO.UnmanagedMemoryStream Paddle {
             get {
-                return ResourceManager.GetStream("Roblox", resourceCulture);
+                return ResourceManager.GetStream("Paddle", resourceCulture);
             }
         }
         

@@ -67,7 +67,7 @@ namespace Pong3U
 
         //All the sounds the game uses
         SoundPlayer bonkSound = new SoundPlayer(Properties.Resources.Bonk);
-        SoundPlayer ballOnPaddle = new SoundPlayer(Properties.Resources.Roblox);
+        SoundPlayer ballOnPaddle = new SoundPlayer(Properties.Resources.Paddle);
         SoundPlayer goalSound = new SoundPlayer(Properties.Resources.GandalfVictory);
         SoundPlayer winnerMusic = new SoundPlayer(Properties.Resources.Victory);
 
@@ -415,6 +415,7 @@ namespace Pong3U
                 winLabel.Text = "Player 1 has won!";
                 winnerMusic.Play();
                 playAgain.Visible = true;
+                exitButton.Visible = true;
             }
             else if (player2Score == 3)
             {
@@ -425,6 +426,7 @@ namespace Pong3U
                 winLabel.Text = "Player 2 has won!";
                 winnerMusic.Play();
                 playAgain.Visible = true;
+                exitButton.Visible = true;
 
             }
 
@@ -440,16 +442,24 @@ namespace Pong3U
             winnerMusic.Stop();
             winLabel.Visible = false;
             playAgain.Visible = false;
+            exitButton.Visible = false;
             gameTimer.Start();
             this.Focus();
         }
 
         private void startButton_Click(object sender, EventArgs e)
-        { //Starts the game
+        {   
+            //Starts the game
             startButton.Visible = false;
             gameTimer.Enabled = true;
             gameTimer.Start();
             this.Focus();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            //Closes the application
+            this.Close();
         }
     }
 }
