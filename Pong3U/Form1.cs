@@ -15,7 +15,7 @@ namespace Pong3U
         Rectangle player2 = new Rectangle(235, 450, 60, 10);
         Rectangle ball = new Rectangle(250, 295, 30, 30);
 
-        //The mid-line
+        //The mid-lines
         Rectangle line = new Rectangle(0, 300, 528, 20);
 
         //The "Goals"
@@ -38,11 +38,12 @@ namespace Pong3U
         //Tracks the score
         int player1Score = 0;
         int player2Score = 0;
-        //Speed of everything
-        int playerSpeed = 6;
-        int ballXSpeed = -6;
-        int ballYSpeed = 6;
 
+        //Speed of everything
+        int playerSpeed = 8;
+        int ballXSpeed = -15;
+        int ballYSpeed = 15;
+        //Keys pressed
         bool wDown = false;
         bool aDown = false;
         bool sDown = false;
@@ -52,12 +53,14 @@ namespace Pong3U
         bool leftArrowDown = false;
         bool rightArrowDown = false;
 
+        //Colors of everything
         SolidBrush blueBrush = new SolidBrush(Color.DodgerBlue);
         SolidBrush redBrush = new SolidBrush(Color.Red);
         SolidBrush whiteBrush = new SolidBrush(Color.White);
         SolidBrush greenBrush = new SolidBrush(Color.Green);
         SolidBrush orangeBrush = new SolidBrush(Color.Orange);
         Pen whitePen = new Pen(Color.White, 5);
+        Pen greenPen = new Pen(Color.Green, 5);
 
         //Tracks the ball at the beginning to see if it has been hit
         int tracker = 1;
@@ -151,7 +154,7 @@ namespace Pong3U
             e.Graphics.FillRectangle(redBrush, player1);
             e.Graphics.FillRectangle(blueBrush, player2);
             e.Graphics.FillRectangle(whiteBrush, ball);
-            e.Graphics.FillRectangle(whiteBrush, line);
+            e.Graphics.FillRectangle(redBrush, line);
             e.Graphics.FillRectangle(greenBrush, collision1Square);
             e.Graphics.FillRectangle(greenBrush, collision2Square);
             e.Graphics.FillRectangle(orangeBrush, ball);
@@ -167,6 +170,7 @@ namespace Pong3U
             //Window dressing (or decorations)
             e.Graphics.DrawArc(whitePen, 212, 550, 100, 100, 0, -180);
             e.Graphics.DrawArc(whitePen, 212, -50, 100, 100, 0, 180);
+            e.Graphics.DrawEllipse(whitePen, 225, 275, 75, 75);
 
         }
         public void player1Movement()
@@ -178,7 +182,7 @@ namespace Pong3U
                 bottomPlayer1.Y += playerSpeed;
             }
 
-            if (sDown == true && player1.IntersectsWith(topLeftWall) == false && player1.IntersectsWith(topRightWall) == false && player1.IntersectsWith(collision2Square) == false)
+            if (sDown == true && bottomPlayer1.IntersectsWith(topLeftWall) == false && bottomPlayer1.IntersectsWith(topRightWall) == false && bottomPlayer1.IntersectsWith(collision2Square) == false)
             {
                 player1.Y -= playerSpeed;
                 bottomPlayer1.Y -= playerSpeed;
@@ -206,7 +210,7 @@ namespace Pong3U
                 bottomPlayer2.Y -= playerSpeed;
             }
 
-            if (downArrowDown == true && player2.IntersectsWith(bottomLeftWall) == false && player2.IntersectsWith(bottomRightWall) == false && (player2.IntersectsWith(collision1Square) == false))
+            if (downArrowDown == true && bottomPlayer2.IntersectsWith(bottomLeftWall) == false && bottomPlayer2.IntersectsWith(bottomRightWall) == false && bottomPlayer2.IntersectsWith(collision1Square) == false)
             {
                 player2.Y += playerSpeed;
                 bottomPlayer2.Y += playerSpeed;
@@ -257,6 +261,7 @@ namespace Pong3U
             if (ball.IntersectsWith(leftWall))
             {
                 ballXSpeed *= -1;
+                ballXSpeed++;
                 ball.X = leftWall.X + ball.Width;
                 bonkSound.Play();
 
@@ -264,6 +269,7 @@ namespace Pong3U
             if (ball.IntersectsWith(bottomLeftWall))
             {
                 ballYSpeed *= -1;
+                ballYSpeed += 3;
                 ball.Y = bottomRightWall.Y - ball.Height;
                 bonkSound.Play();
 
@@ -271,6 +277,7 @@ namespace Pong3U
             if (ball.IntersectsWith(rightWall))
             {
                 ballXSpeed *= -1;
+                ballXSpeed++;
                 ball.X = rightWall.X - ball.Width;
                 bonkSound.Play();
 
@@ -278,6 +285,7 @@ namespace Pong3U
             if (ball.IntersectsWith(topRightWall))
             {
                 ballYSpeed *= -1;
+                ballYSpeed += 3;
                 ball.Y = topRightWall.Y + ball.Height;
                 bonkSound.Play();
 
@@ -285,6 +293,7 @@ namespace Pong3U
             if (ball.IntersectsWith(bottomRightWall))
             {
                 ballYSpeed *= -1;
+                ballYSpeed += 3;
                 ball.Y = bottomRightWall.Y - ball.Height;
                 bonkSound.Play();
 
@@ -292,6 +301,7 @@ namespace Pong3U
             if (ball.IntersectsWith(topLeftWall))
             {
                 ballYSpeed *= -1;
+                ballYSpeed += 3;
                 ball.Y = topRightWall.Y + ball.Height;
                 bonkSound.Play();
 
@@ -306,8 +316,8 @@ namespace Pong3U
                 ball.X = 250;
                 ball.Y = 295;
 
-                ballXSpeed = -6;
-                ballYSpeed = 6;
+                ballXSpeed = -15;
+                ballYSpeed = 15;
 
                 player1.X = 235;
                 player1.Y = 150;
@@ -332,8 +342,8 @@ namespace Pong3U
                 ball.X = 250;
                 ball.Y = 295;
 
-                ballXSpeed = -6;
-                ballYSpeed = 6;
+                ballXSpeed = -15;
+                ballYSpeed = 15;
 
                 player1.X = 235;
                 player1.Y = 150;
@@ -357,6 +367,7 @@ namespace Pong3U
             {
 
                 ballYSpeed *= -1;
+                ballYSpeed++;
                 ball.Y = player1.Y + ball.Height;
                 ballOnPaddle.Play();
 
@@ -366,6 +377,7 @@ namespace Pong3U
             {
 
                 ballYSpeed *= -1;
+                ballYSpeed++;
                 ball.Y = player1.Y - ball.Height;
                 ballOnPaddle.Play();
             }
@@ -373,6 +385,7 @@ namespace Pong3U
             {
 
                 ballYSpeed *= -1;
+                ballYSpeed++;
                 ball.Y = player2.Y - ball.Height;
                 ballOnPaddle.Play();
 
@@ -380,6 +393,7 @@ namespace Pong3U
             if (player2.IntersectsWith(ball) && bottomPlayer2.IntersectsWith(ball))
             {
                 ballYSpeed *= -1;
+                ballYSpeed++;
                 ball.Y = player2.Y + ball.Height;
                 ballOnPaddle.Play();
             }
@@ -408,7 +422,7 @@ namespace Pong3U
                 gameTimer.Stop();
                 gameTimer.Dispose();
                 winLabel.Visible = true;
-                winLabel.Text = "Player 1 has won!";
+                winLabel.Text = "Player 2 has won!";
                 winnerMusic.Play();
                 playAgain.Visible = true;
 
@@ -418,13 +432,24 @@ namespace Pong3U
 
         private void playAgain_Click(object sender, EventArgs e)
         {
-            
+            //Button to play again 
+            player1Score = 0;
+            player2Score = 0;
             p1ScoreLabel.Text = "Player 1: 0";
             p2ScoreLabel.Text = "Player 2: 0";
             winnerMusic.Stop();
             winLabel.Visible = false;
             playAgain.Visible = false;
             gameTimer.Start();
+            this.Focus();
+        }
+
+        private void startButton_Click(object sender, EventArgs e)
+        { //Starts the game
+            startButton.Visible = false;
+            gameTimer.Enabled = true;
+            gameTimer.Start();
+            this.Focus();
         }
     }
 }
