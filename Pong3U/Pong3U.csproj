@@ -68,6 +68,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -82,6 +83,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bonk Sound Effect-6TP0abZdRXg.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roblox Death Sound - Sound Effect %28HD%29-3w-2gUSus34.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gandalf.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gandalf Sax 4K-yAvRfhdl-WI.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dance till You%27re Dead %28FULL REMIX%29 [Bass Boosted]-K0tXhd7u56k.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
